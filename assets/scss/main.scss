@@ -1,0 +1,36 @@
+//Abstracts
+@import 'abstracts/variables';
+
+//Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+
+//Layout
+@import 'layout/footer';
+@import 'layout/sidebar';
+
+//Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/navbar';
+@import 'components/caroussels';
+@import 'components/search';
+
+//Pages
+@import 'pages/home';
+@import 'pages/logement';
+@import 'pages/forgot-password';
+@import 'pages/reset-password';
+@import 'pages/login';
+@import 'pages/register';
+@import 'pages/edit-profile';
+@import 'pages/my-bookings';
+@import 'pages/my-listings';
+@import 'pages/my-favoris';
+@import 'pages/messagerie';
+@import 'pages/index';
+@import 'pages/annonce-detail';
+@import 'pages/publier-annonce';
+@import 'pages/profil';
+@import 'pages/legal';

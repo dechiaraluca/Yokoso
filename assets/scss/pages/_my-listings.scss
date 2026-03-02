@@ -1,0 +1,252 @@
+.listings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.listing-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: $color-card-bg;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 12px $color-card-hover;
+  }
+
+  .listing-thumb-wrap {
+    position: relative;
+    width: 180px;
+    flex-shrink: 0;
+    border-radius: $border-radius;
+    overflow: hidden;
+    align-self: flex-start;
+
+    .listing-image {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .listing-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+
+      &.badge-active {
+        background: #d1fae5;
+        color: #065f46;
+      }
+
+      &.badge-inactive {
+        background: #f3f4f6;
+        color: #6b7280;
+      }
+    }
+  }
+
+  .listing-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .listing-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: $color-text;
+        margin: 0;
+      }
+
+      .listing-date {
+        font-size: 12px;
+        color: $color-placeholder;
+        font-style: italic;
+        white-space: nowrap;
+      }
+    }
+
+    .listing-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 13px;
+        color: $color-muted;
+
+        i { font-size: 12px; }
+      }
+    }
+
+    .listing-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+
+      .stat {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 13px;
+        font-weight: 500;
+        color: $color-text;
+
+        i {
+          font-size: 12px;
+          color: #f59e0b;
+        }
+
+        &.stat--muted {
+          color: $color-muted;
+          font-weight: 400;
+
+          i { color: $color-muted; }
+        }
+      }
+    }
+  }
+
+  .listing-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .action-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid $color-border;
+      background: $color-bg;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: $transition;
+      text-decoration: none;
+
+      &:hover {
+        background: #f0f0f0;
+        border-color: #ccc;
+      }
+
+      i {
+        font-size: 15px;
+        color: #555;
+      }
+
+      &.delete:hover {
+        background: #ffe4e4;
+        border-color: #fca5a5;
+
+        i { color: $color-danger; }
+      }
+
+      &.toggle-dispo {
+        i { font-size: 18px; color: $color-muted; }
+
+        &.is-active {
+          background: #d1fae5;
+          border-color: #6ee7b7;
+
+          i { color: #059669; }
+
+          &:hover { background: #a7f3d0; }
+        }
+
+        &:not(.is-active) i { color: #9ca3af; }
+      }
+    }
+  }
+}
+
+.add-listing-btn-container {
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+.btn-add-listing {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: $border-radius;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+
+  &:hover { background: #333; }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: $color-muted;
+
+  i {
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: #ccc;
+    display: block;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .btn-add-listing {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .listing-item {
+    flex-direction: column;
+    gap: 14px;
+
+    .listing-thumb-wrap {
+      width: 100%;
+
+      .listing-image { height: 180px; }
+    }
+
+    .listing-actions {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+}

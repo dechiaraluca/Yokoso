@@ -1,0 +1,31 @@
+// ── Page load : très subtil (0.7 → 1, pas de départ "page noire") ────────────
+
+@keyframes pageFadeIn {
+  from { opacity: 0.6; }
+  to   { opacity: 1; }
+}
+
+body {
+  animation: pageFadeIn 0.2s ease;
+}
+
+body.is-leaving {
+  opacity: 0 !important;
+  transition: opacity 0.18s ease !important;
+  animation: none !important;
+}
+
+// ── Card / element entrance : @keyframes (prioritaire sur transition) ─────────
+
+@keyframes cardSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-ready {
+  opacity: 0;
+}
+
+.anim-ready.anim-visible {
+  animation: cardSlideUp 0.38s ease both;
+}

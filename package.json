@@ -1,0 +1,27 @@
+{
+  "name": "yokoso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss assets/css/main.css", 
+    "sass:watch": "sass --watch assets/scss/main.scss:assets/css/main.css", 
+    "sass:build": "sass assets/scss/main.scss assets/css/main.css --style compressed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarineMeyZielinski/Yokoso.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MarineMeyZielinski/Yokoso/issues"
+  },
+  "homepage": "https://github.com/MarineMeyZielinski/Yokoso#readme",
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}

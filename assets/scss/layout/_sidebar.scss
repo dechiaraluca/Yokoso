@@ -1,0 +1,120 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+
+  .sidebar {
+    width: 260px;
+    flex-shrink: 0;
+  }
+
+  .sidebar {
+    background: $color-sidebar;
+    color: $color-sidebar-text;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    &-blanc {
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+
+    &-yokoso {
+      width: 140px;
+      height: auto;
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 10px;
+
+    a {
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: $color-a;
+      text-decoration: none;
+
+      &:hover {
+        background:$color-bg-hover;
+      }
+    }
+  }
+
+  .sidebar-logout-sep {
+    display: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: 4px 0;
+  }
+
+  .sidebar-logout {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #ff6b6b !important;
+    text-decoration: none;
+    font-size: 14px;
+
+    &:hover {
+      background: rgba(255, 80, 80, 0.15) !important;
+    }
+  }
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 299;
+  backdrop-filter: blur(2px);
+
+  &.active {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    z-index: 300;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.open {
+      left: 0;
+    }
+  }
+
+  .page .sidebar-logout-sep {
+    display: block;
+  }
+
+  .page .sidebar-logout {
+    display: flex;
+  }
+}

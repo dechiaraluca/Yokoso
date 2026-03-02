@@ -1,0 +1,850 @@
+.annonce-detail {
+  padding-top: 24px;
+}
+
+// Breadcrumb
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666;
+
+  a {
+    color: #666;
+    text-decoration: none;
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+
+  span:last-child {
+    color: #000;
+    font-weight: 500;
+  }
+}
+
+// Header
+.annonce-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 20px;
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #111;
+  }
+
+  .annonce-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 15px;
+
+    i {
+      color: #999;
+    }
+  }
+
+  .annonce-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .annonce-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+
+    i { color: #f5a623; }
+
+    .rating-value { font-weight: 700; }
+    .rating-count { color: #666; font-size: 13px; }
+  }
+
+  .annonce-price {
+    text-align: right;
+
+    .price-amount {
+      font-size: 36px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .price-label {
+      font-size: 16px;
+      color: #666;
+    }
+  }
+}
+
+// Section avis
+.avis-section {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e8e8;
+
+  .avis-header {
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      i { color: #f5a623; }
+    }
+  }
+
+  .avis-flash {
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+
+    &--success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+    }
+
+    &--error {
+      background: #fdecea;
+      color: #c62828;
+      border: 1px solid #ef9a9a;
+    }
+  }
+
+  // Formulaire étoiles interactif
+  .avis-form {
+    background: #f8f8f8;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+
+    .star-picker {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 16px;
+
+      input[type="radio"] { display: none; }
+
+      label {
+        font-size: 28px;
+        color: #ddd;
+        cursor: pointer;
+        transition: color 0.15s;
+
+        i { pointer-events: none; }
+      }
+
+      input:checked ~ label,
+      label:hover,
+      label:hover ~ label {
+        color: #f5a623;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: Inter, sans-serif;
+      resize: vertical;
+      outline: none;
+      background: #fff;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+
+      &:focus { border-color: #aaa; }
+    }
+  }
+
+  .btn-submit-avis {
+    padding: 12px 32px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover { background: #333; }
+  }
+
+  .avis-empty {
+    color: #888;
+    font-style: italic;
+    font-size: 15px;
+  }
+
+  .avis-already {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  // Grille des avis
+  .avis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .avis-card {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 16px;
+    padding: 20px;
+
+    .avis-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avis-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      i { color: #999; font-size: 18px; }
+    }
+
+    .avis-author {
+      font-weight: 600;
+      font-size: 15px;
+      color: #111;
+    }
+
+    .avis-date {
+      font-size: 13px;
+      color: #888;
+      text-transform: capitalize;
+    }
+
+    .avis-stars {
+      margin-left: auto;
+      display: flex;
+      gap: 2px;
+
+      i {
+        font-size: 13px;
+        color: #f5a623;
+
+        &.fa-regular { color: #ddd; }
+      }
+    }
+
+    .avis-commentaire {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .avis-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.annonce-gallery {
+  margin-bottom: 12px;
+  position: relative;
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 6px;
+    height: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+
+    &--single {
+      grid-template-columns: 1fr;
+
+      .gallery-cell--main { border-radius: 14px; }
+    }
+  }
+
+  .gallery-cell--main {
+    grid-row: 1 / 3;
+  }
+
+  .gallery-secondary {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .gallery-cell {
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.2s;
+    }
+
+    &:hover {
+      img { transform: scale(1.04); }
+      &::after { background: rgba(0,0,0,0.15); }
+    }
+
+    &--more {
+      .gallery-more-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 700;
+        color: #fff;
+        z-index: 1;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .gallery-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    padding: 8px 18px;
+    background: #fff;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-text;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background: #f5f5f5;
+      border-color: #999;
+    }
+  }
+}
+
+// ---- Lightbox ----
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &.is-open {
+    display: flex;
+  }
+
+  .lightbox-img-wrap {
+    max-width: 90vw;
+    max-height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+  }
+
+  .lightbox-counter {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-top: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover { background: rgba(255,255,255,0.25); }
+  }
+
+  .lightbox-close {
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+.annonce-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.annonce-main {
+  .annonce-section {
+    margin-bottom: 32px;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #111;
+    }
+  }
+
+  .annonce-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 15px;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+
+      i {
+        color: #666;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .annonce-description {
+    line-height: 1.7;
+    color: #555;
+    font-size: 15px;
+  }
+
+  .annonce-equipements {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+
+    .equipement-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      font-size: 14px;
+
+      i {
+        font-size: 20px;
+        color: #666;
+      }
+    }
+  }
+}
+
+.annonce-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.booking-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.booking-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 20px;
+
+  .amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .label {
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+.booking-form {
+  .form-group {
+    margin-bottom: 16px;
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 8px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: #000;
+      }
+    }
+  }
+
+  .price-summary {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+
+    .price-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      color: #444;
+    }
+
+    .price-summary-per-person {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .price-summary-divider {
+      border-top: 1px solid #e0e0e0;
+      margin: 10px 0 6px;
+    }
+
+    .price-summary-grand {
+      font-weight: 700;
+      font-size: 15px;
+      color: #111;
+    }
+  }
+
+  .btn-reserve {
+    width: 100%;
+    padding: 14px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #333;
+    }
+  }
+}
+
+// Prompt connexion pour les visiteurs non connectés
+.booking-guest-prompt {
+  text-align: center;
+  padding: 8px 0 4px;
+
+  p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  .btn-guest-reserve {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.2s;
+
+    &:hover { background: #333; }
+  }
+}
+
+// Notice pour le propriétaire
+.booking-owner-notice {
+  text-align: center;
+  padding: 20px 0;
+  color: #999;
+
+  i {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 10px;
+    color: #ccc;
+  }
+
+  p { font-size: 14px; }
+}
+
+.owner-info {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+
+  h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #111;
+  }
+
+  .owner-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    padding: 4px;
+    transition: background 0.15s;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+
+    img,
+    .owner-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .owner-avatar {
+      background: #e0e0e0;
+      display: grid;
+      place-items: center;
+
+      i {
+        font-size: 20px;
+        color: #999;
+      }
+    }
+
+    .owner-name {
+      font-weight: 600;
+      color: #111;
+    }
+  }
+
+  .btn-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #e0e0e0;
+    }
+  }
+}
+
+// ---- Carte de localisation ----
+.annonce-map-section {
+  margin-bottom: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e8e8;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
+  }
+}
+
+.map-location-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: $color-muted;
+  margin-bottom: 14px;
+
+  i { font-size: 13px; color: #999; }
+}
+
+#annonce-map {
+  height: 380px;
+  border-radius: 14px;
+  border: 1px solid $color-border;
+  overflow: hidden;
+}
+
+.map-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: $color-muted;
+  margin-top: 10px;
+
+  i { font-size: 12px; flex-shrink: 0; }
+}
+
+@media (max-width: 1024px) {
+  .annonce-content {
+    grid-template-columns: 1fr;
+  }
+
+  .annonce-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .annonce-detail {
+    padding: 0 16px;
+  }
+
+  .annonce-header {
+    flex-direction: column;
+
+    .annonce-price {
+      text-align: left;
+    }
+  }
+
+  .annonce-gallery {
+    margin-left: -16px;
+    margin-right: -16px;
+
+    .gallery-grid {
+      height: 340px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      border-radius: 0;
+
+      .gallery-secondary { display: none; }
+      .gallery-cell--main { grid-row: auto; border-radius: 0; }
+    }
+
+    .gallery-all-btn {
+      margin-left: 16px;
+    }
+  }
+
+  .avis-section {
+    margin-top: 32px;
+    padding: 24px 16px 0;
+  }
+
+  .annonce-map-section {
+    padding: 24px 16px 0;
+
+    #annonce-map {
+      height: 260px;
+      border-radius: 10px;
+    }
+  }
+}
