@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>YOKOSO</title>
+</head>
+<body class="page-index">
+  <div class="image-container">
+    <img src="images/yokoso.png" alt="Yokoso" class="Yokoso">
+    <a href="home.php" id="logo-link">
+      <img src="images/logo.png" alt="Logo" class="logo-index">
+    </a>
+  </div>
+
+  <audio id="click-sound" src="sound/Yokoso.mp3" preload="auto"></audio>
+
+  <script>
+    const logo = document.querySelector(".logo-index");
+    const link = document.getElementById("logo-link");
+    const sound = document.getElementById("click-sound");
+
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      logo.classList.add("clicked");
+      sound.play();
+
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
