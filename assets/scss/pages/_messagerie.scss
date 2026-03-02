@@ -178,6 +178,7 @@ body.chat-body {
   // Page grid : contrainte à 100vh pour éviter le scroll
   .page {
     height: 100vh;
+    height: 100dvh; // Prend en compte le clavier virtuel mobile
     overflow: hidden;
   }
 
@@ -195,6 +196,7 @@ main.content.chat-layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  height: 100dvh; // Prend en compte le clavier virtuel mobile
   overflow: hidden;
 
   .topbar {

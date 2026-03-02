@@ -184,6 +184,15 @@ if (isset($_SESSION['user_id'])) {
       let timer = setInterval(()=>go(index+1), 5000);
       root.addEventListener('mouseenter', ()=>clearInterval(timer));
       root.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>go(index+1), 5000); });
+
+      // Support swipe tactile
+      let touchStartX = 0;
+      root.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+      root.addEventListener('touchend', (e)=>{
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) go(dx < 0 ? index + 1 : index - 1);
+      }, { passive: true });
+
       update();
     })();
   </script>

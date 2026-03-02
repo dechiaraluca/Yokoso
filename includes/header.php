@@ -427,26 +427,6 @@ if ($is_logged_in) {
   })();
   <?php endif; ?>
 
-  // ── Transitions de pages
-  (function() {
-    let isLeaving = false;
-    document.addEventListener('click', function(e) {
-      if (isLeaving) return;
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('javascript') ||
-          href.startsWith('mailto') || href.startsWith('tel') ||
-          link.target === '_blank' || link.hasAttribute('download') ||
-          !link.href.startsWith(window.location.origin)) return;
-      isLeaving = true;
-      e.preventDefault();
-      const dest = link.href;
-      document.body.classList.add('is-leaving');
-      setTimeout(function() { window.location.href = dest; }, 200);
-    });
-  })();
-
   // ── Animation d'apparition des cards au scroll
   (function() {
     if (!('IntersectionObserver' in window)) return;
