@@ -185,12 +185,27 @@ if (isset($_SESSION['user_id'])) {
       root.addEventListener('mouseenter', ()=>clearInterval(timer));
       root.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>go(index+1), 5000); });
 
-      // Support swipe tactile
-      let touchStartX = 0;
-      root.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+      // Support swipe tactile fluide
+      let touchStartX = 0, dragging = false;
+      root.addEventListener('touchstart', (e)=>{
+        touchStartX = e.changedTouches[0].clientX;
+        dragging = true;
+        slides.style.transition = 'none';
+        clearInterval(timer);
+      }, { passive: true });
+      root.addEventListener('touchmove', (e)=>{
+        if (!dragging) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        slides.style.transform = `translateX(calc(${-index * 100}% + ${dx}px))`;
+      }, { passive: true });
       root.addEventListener('touchend', (e)=>{
+        if (!dragging) return;
+        dragging = false;
+        slides.style.transition = 'transform 0.3s ease';
         const dx = e.changedTouches[0].clientX - touchStartX;
         if (Math.abs(dx) > 50) go(dx < 0 ? index + 1 : index - 1);
+        else update();
+        timer = setInterval(()=>go(index+1), 5000);
       }, { passive: true });
 
       update();

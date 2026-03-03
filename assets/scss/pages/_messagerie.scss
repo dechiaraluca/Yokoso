@@ -179,6 +179,7 @@ body.chat-body {
   .page {
     height: 100vh;
     height: 100svh; // Garantit que le layout tient dans le viewport avec la barre d'adresse
+    min-height: 0; // Override min-height:100vh de .page pour que height:100svh soit respecté
     overflow: hidden;
   }
 
@@ -197,10 +198,12 @@ main.content.chat-layout {
   flex-direction: column;
   height: 100vh;
   height: 100svh; // Garantit que l'input reste visible avec la barre d'adresse affichée
+  min-height: 0; // Override min-height:100vh de .content pour que height:100svh soit respecté
   overflow: hidden;
 
   .topbar {
     padding: 10px 24px;
+    margin: 0; // Annule le margin: 0 -28px mobile de _navbar.scss
     flex-shrink: 0;
     border-bottom: 1px solid $color-border;
   }

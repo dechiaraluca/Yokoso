@@ -531,14 +531,25 @@ if ($is_logged_in && !$is_owner) {
             if (e.key === 'ArrowRight') lightboxNav(1);
         });
 
-        // Support swipe tactile pour la lightbox
+        // Support swipe tactile fluide pour la lightbox
         (function() {
             const lb = document.getElementById('lightbox');
+            const imgEl = document.getElementById('lightboxImg');
             let touchStartX = 0;
-            lb.addEventListener('touchstart', (e)=>{ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchstart', (e)=>{
+                touchStartX = e.changedTouches[0].clientX;
+                imgEl.style.transition = 'none';
+            }, { passive: true });
+            lb.addEventListener('touchmove', (e)=>{
+                if (!lb.classList.contains('is-open')) return;
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                imgEl.style.transform = `translateX(${dx * 0.4}px)`;
+            }, { passive: true });
             lb.addEventListener('touchend', (e)=>{
                 if (!lb.classList.contains('is-open')) return;
                 const dx = e.changedTouches[0].clientX - touchStartX;
+                imgEl.style.transition = 'transform 0.25s ease';
+                imgEl.style.transform = '';
                 if (Math.abs(dx) > 50) lightboxNav(dx < 0 ? 1 : -1);
             }, { passive: true });
         })();
