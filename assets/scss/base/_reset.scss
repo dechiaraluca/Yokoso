@@ -4,3 +4,8 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+
+// Supprime l'outline bleu au tap/clic, le conserve pour la navigation clavier
+*:focus:not(:focus-visible) {
+    outline: none;
+}

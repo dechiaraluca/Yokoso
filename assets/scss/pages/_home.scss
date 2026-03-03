@@ -33,6 +33,7 @@
     color: #111;
     text-align: center;
     z-index: 2;
+    padding: 0 12px;
   }
 
   .kicker {
@@ -234,17 +235,17 @@
 }
 
 @media (max-width: 480px) {
-  .hero {
-    img {
-      height: 180px;
-    }
+  .hero img {
+    height: 180px;
+  }
 
+  main.content > section.hero {
     .title {
-      font-size: 32px;
+      font-size: 26px;
     }
 
     .subtitle {
-      font-size: 15px;
+      font-size: 14px;
     }
   }
 }
