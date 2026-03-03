@@ -121,4 +121,4 @@ npm run sass:watch     # Watch + recompilation automatique
 
 Le projet est hébergé sur **InfinityFree**.
 
-Site : yokoso.infinityfree.me
+Site : [yokoso.infinityfree.me](https://yokoso.infinityfree.me)
